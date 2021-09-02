@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bhaskara</title>
+<script type="text/javascript">
+function calculaequaçãosegundograu()
+{
+var delta,x
+var a = eval(document.form1.a.value);
+var b = eval(document.form1.b.value);
+var c = eval(document.form1.c.value);
+var delta = ((b * b) - (4 * a * c));
+if (delta < 0) 
+{
+document.form1.delta.value = delta;
+document.form1.coefa.value = a;
+document.form1.coefb.value = b;
+document.form1.coefc.value = c;
+document.form1.bxb.value = b * b;
+document.form1.ac.value = 4 * a * c;
+document.form1.mb.value = "";
+document.form1.deltax1.value = "";
+document.form1.doisa.value = "";
+document.form1.mbb.value = "";
+document.form1.deltax2.value = "";
+document.form1.doisaa.value = "";
+document.form1.x1.value = "Raiz não real";
+document.form1.x2.value = "Raiz não real";
+}
+else
+{
+var x1 = ((- b + Math.sqrt(delta)) / (2 * a));
+var x2 = ((- b - Math.sqrt(delta)) / (2 * a));
+document.form1.delta.value = delta;
+document.form1.coefa.value = a;
+document.form1.coefb.value = b;
+document.form1.coefc.value = c;
+document.form1.bxb.value = b * b;
+document.form1.ac.value = 4 * a * c;
+document.form1.mb.value = -b;
+document.form1.deltax1.value = delta;
+document.form1.doisa.value = 2 * a;
+document.form1.mbb.value = -b;
+document.form1.deltax2.value = delta;
+document.form1.doisaa.value = 2 * a;
+document.form1.x1.value = x1.toFixed(2);
+document.form1.x2.value = x2.toFixed(2);
+}
+}
+function reiniciar()
+{
+document.form1.delta.value = "";
+document.form1.x1.value = "";
+document.form1.x2.value = "";
+}
+</script>
+<style type="text/css">
+.caixa{
+border: 5px outset red;
+background-color: lightblue;
+text-align: center;
+margin-top: 100px;
+}
+</style>
+</head>
+<body>
+<div class="caixa">
+<form name="form1">
+<font size="5">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="a" onclick="reiniciar()" size="1"> x<sup>2</sup> + 
+<input type="text" name="b" onclick="reiniciar()" size="1"> x +
+<input type="text" name="c" onclick="reiniciaR()" size="1"> = 0
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<input class="botaoenviar" type="button" value="Calcular" onclick="calculaequaçãosegundograu()">
+<input class="botaolimpar" type="reset" value="Limpar">
+<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&Delta; = &nbsp;&nbsp;<output type="text" size="2" name="coefb"></output><sup>2</sup> - (4 . <output type="text" size="2" name="coefa"></output> . <output type="text" size="2" name="coefc"></output>)
+<br>&Delta; = <output type="text" size="2" name="bxb"></output> - (<output type="text" size="2" name="ac"></output>)
+<br>&Delta; = &nbsp;&nbsp;<output type="text" size="2" name="delta"></output>
+<br><br>x<sub>1</sub> = (<output type="text" size="2" name="mb"></output> + &radic;<output type="text" size="2" name="deltax1"></output>)/(<output type="text" size="2" name="doisa"></output>)
+<br>x<sub>1</sub> = &nbsp;&nbsp;<output type="text" size="2" name="x1"></output>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>x<sub>2</sub> = (<output type="text" size="2" name="mbb"></output> - &radic;<output type="text" size="2" name="deltax2"></output>)/(<output type="text" size="2" name="doisaa"></output>)
+<br>x<sub>2</sub> = &nbsp;&nbsp;<output type="text" size="2" name="x2"></output>
+</font>
+</form>
+</div>
+</body>
+</html>
